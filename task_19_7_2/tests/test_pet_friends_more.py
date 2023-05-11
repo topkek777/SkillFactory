@@ -137,7 +137,6 @@ def test_add_new_pet_with_invalid_name(name='Давид'*20, animal_type='Бро
 
     # Создаем питомца без фото
     status, result = pf.add_new_pet_without_photo(auth_key, name, animal_type, age)
-    print(result)
 
     # Сверяем полученный ответ с ожидаемым результатом
     if result['name'] == name:
@@ -151,7 +150,6 @@ def test_delete_someone_else_pet():
     _, auth_key = pf.get_api_key(valid_email, valid_password)
     _, my_pets = pf.get_list_of_pets(auth_key, "my_pets")
     _, all_pets = pf.get_list_of_pets(auth_key)
-    print(all_pets['pets'][0]['id'])
 
     # Проверяем - если список своих питомцев пустой, то добавляем нового и опять запрашиваем список своих питомцев
     if len(my_pets['pets']) == 0:
